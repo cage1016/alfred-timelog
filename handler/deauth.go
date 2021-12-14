@@ -22,5 +22,7 @@ func DoDeAuthorize(wf *aw.Workflow, _ []string) (string, error) {
 	// nolint:errcheck // removing the token from the keychain is best effort
 	_ = alfred.RemoveToken(wf)
 
+	_ = alfred.StoreOngoingTimetrack(wf, alfred.Timetrack{})
+
 	return "Timetrack de-authorized successfully 😎", nil
 }
