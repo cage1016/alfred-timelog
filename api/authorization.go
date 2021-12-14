@@ -32,7 +32,7 @@ func NewConfig(clientID, clientSecret string) *oauth2.Config {
 		RedirectURL:  "http://localhost:" + strconv.Itoa(port),
 		Scopes: []string{
 			"https://www.googleapis.com/auth/spreadsheets",
-			"https://www.googleapis.com/auth/drive.file",
+			"https://www.googleapis.com/auth/drive",
 			"https://www.googleapis.com/auth/userinfo.email",
 		},
 		Endpoint: oauth2.Endpoint{
