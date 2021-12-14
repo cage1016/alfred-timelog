@@ -9,9 +9,9 @@ import (
 const ongoingTimetrack = "timetrack.json"
 
 type Timetrack struct {
-	DriveFolderName string `json:"drive_folder_name"`
 	DriveFolderID   string `json:"drive_folder_id"`
 	SpreadsheetID   string `json:"spreadsheet_id"`
+	SpreadsheetName string `json:"spreadsheet_name"`
 	WeekStartUnix   int64  `json:"week_start_unix"`
 	WeekEndUnix     int64  `json:"week_end_unix"`
 }
