@@ -7,7 +7,7 @@ import (
 
 	"github.com/snabb/isoweek"
 
-	"github.com/cate1016/alfred-timetrack/utils"
+	"github.com/cate1016/alfred-timelog/utils"
 )
 
 const (
@@ -47,7 +47,7 @@ func (s *Client) Setup(drivefolderName string) (did, sheetname, csid string, sta
 	}
 
 	// update spreadsheet data and format
-	err = s.sheet.TimetrackSheetInitialize(csid, wds, tr)
+	err = s.sheet.TimelogSheetInitialize(csid, wds, tr)
 	if err != nil {
 		return "", "", "", 0, 0, err
 	}

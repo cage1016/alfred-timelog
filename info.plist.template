@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>com.timetrack.kaichu</string>
+	<string>com.timelog.kaichu</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -155,11 +155,11 @@
 	<key>createdby</key>
 	<string>KAI CHU CHUNG</string>
 	<key>description</key>
-	<string>Add fdjf</string>
+	<string></string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>TimeTrack</string>
+	<string>Timelog</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -174,7 +174,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Timetrack Add</string>
+				<string>Timelog Add</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -189,7 +189,7 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
-				<string>tt</string>
+				<string>tl</string>
 				<key>subtext</key>
 				<string></string>
 				<key>text</key>
@@ -212,7 +212,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./timetrack add "$1"</string>
+				<string>./timelog add "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -233,11 +233,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>tt deauth</string>
+				<string>tl deauth</string>
 				<key>subtext</key>
 				<string>DeAuthorize access to Google Drive &amp; Spreadsheet</string>
 				<key>text</key>
-				<string>Timetrack DeAuthorize</string>
+				<string>Timelog DeAuthorize</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -260,7 +260,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Timetrack Authorize</string>
+				<string>Timelog Authorize</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -277,7 +277,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./timetrack auth "$1"</string>
+				<string>./timelog auth "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -304,7 +304,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Timetrack Authorize</string>
+				<string>Timelog Authorize</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -319,11 +319,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>tt auth</string>
+				<string>tl auth</string>
 				<key>subtext</key>
 				<string>Authorize access to Google Drive &amp; Spreadsheet</string>
 				<key>text</key>
-				<string>Timetrack Authorize</string>
+				<string>Timelog Authorize</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -342,7 +342,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./timetrack deauth "$1"</string>
+				<string>./timelog deauth "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -367,7 +367,7 @@
 				<key>subtext</key>
 				<string>DeAuthorize access to Google Drive &amp; Spreadsheet</string>
 				<key>text</key>
-				<string>Timetrack DeAuthorize</string>
+				<string>Timelog DeAuthorize</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -388,7 +388,7 @@
 				<key>subtext</key>
 				<string>Authorize access to Google Drive &amp; Spreadsheet</string>
 				<key>text</key>
-				<string>Timetrack Authorize</string>
+				<string>Timelog Authorize</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -407,7 +407,7 @@
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>./timetrack setup "$1"</string>
+				<string>./timelog setup "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -428,11 +428,11 @@
 				<key>argumenttype</key>
 				<integer>2</integer>
 				<key>keyword</key>
-				<string>tt setup</string>
+				<string>tl setup</string>
 				<key>subtext</key>
 				<string>Prepare Setup</string>
 				<key>text</key>
-				<string>Timetrack Setup</string>
+				<string>Timelog Setup</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -455,7 +455,7 @@
 				<key>text</key>
 				<string>{query}</string>
 				<key>title</key>
-				<string>Timetrack Setup</string>
+				<string>Timelog Setup</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.notification</string>
@@ -474,7 +474,7 @@
 				<key>subtext</key>
 				<string>Prepare Setup</string>
 				<key>text</key>
-				<string>Timetrack Setup</string>
+				<string>Timelog Setup</string>
 				<key>withspace</key>
 				<false/>
 			</dict>
@@ -603,15 +603,7 @@
 		<key>client_secret</key>
 		<string>9crQjzdTGAUXDJreyBT0xZ6R</string>
 		<key>drive_folder_name</key>
-		<string>timetrack</string>
-		<key>drive_folder_id</key>
-		<string>1A6PfrqEAETDwNv6oHKybDNFmdYurjHYJ</string>
-		<key>spreadsheet_id</key>
-		<string></string>
-		<key>week_start_unix</key>
-		<string>1638046800</string>
-		<key>week_end_unix</key>
-		<string>1638651600</string>
+		<string>timelog</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
@@ -622,6 +614,6 @@
 	<key>version</key>
 	<string>${VERSION}</string>
 	<key>webaddress</key>
-	<string>https://github.com/cage1016/alfred-timetrack</string>
+	<string>https://github.com/cage1016/alfred-timelog</string>
 </dict>
 </plist>

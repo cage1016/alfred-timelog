@@ -8,7 +8,7 @@ import (
 
 	aw "github.com/deanishe/awgo"
 
-	"github.com/cate1016/alfred-timetrack/handler"
+	"github.com/cate1016/alfred-timelog/handler"
 )
 
 var wf *aw.Workflow

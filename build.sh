@@ -3,10 +3,10 @@
 set -o errexit
 set -o nounset
 
-archive="timetrack-${VERSION}.alfredworkflow"
+archive="timelog-${VERSION}.alfredworkflow"
 
 echo "Building go binary:"
-GOARCH=amd64 GOOS=darwin go build -ldflags "-s -w" -o ".workflow/timetrack" .
+GOARCH=amd64 GOOS=darwin go build -ldflags "-s -w" -o ".workflow/timelog" .
 
 echo ""
 echo "Crearing archive:"

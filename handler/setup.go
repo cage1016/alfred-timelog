@@ -7,14 +7,14 @@ import (
 	aw "github.com/deanishe/awgo"
 	"golang.org/x/oauth2"
 
-	"github.com/cate1016/alfred-timetrack/alfred"
-	"github.com/cate1016/alfred-timetrack/api"
+	"github.com/cate1016/alfred-timelog/alfred"
+	"github.com/cate1016/alfred-timelog/api"
 )
 
 func DoSetup(wf *aw.Workflow, _ []string) (string, error) {
 	token, err := alfred.GetToken(wf)
 	if err != nil {
-		return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%w)", err)
+		return "", fmt.Errorf("please authorize Timelog with `tl authorize` first 👀 (%w)", err)
 	}
 
 	ctx := context.Background()
@@ -31,7 +31,7 @@ func DoSetup(wf *aw.Workflow, _ []string) (string, error) {
 		return "", fmt.Errorf("could not init setup, please try again later 🙏 (%w)", err)
 	}
 
-	err = alfred.StoreOngoingTimetrack(wf, alfred.Timetrack{
+	err = alfred.StoreOngoingTimelog(wf, alfred.Timelog{
 		DriveFolderID:   did,
 		SpreadsheetName: sheetname,
 		SpreadsheetID:   csid,
@@ -39,8 +39,8 @@ func DoSetup(wf *aw.Workflow, _ []string) (string, error) {
 		WeekEndUnix:     end,
 	})
 	if err != nil {
-		return "", fmt.Errorf("could not save timetrack data, please try again later 🙏 (%w)", err)
+		return "", fmt.Errorf("could not save Timelog data, please try again later 🙏 (%w)", err)
 	}
 
-	return "Timetrack initialize successfully ⌛", nil
+	return "Timelog initialize successfully ⌛", nil
 }

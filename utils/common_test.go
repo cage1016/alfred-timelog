@@ -6,7 +6,7 @@ import (
 
 	"gotest.tools/assert"
 
-	"github.com/cate1016/alfred-timetrack/utils"
+	"github.com/cate1016/alfred-timelog/utils"
 )
 
 func Test_IdOf(t *testing.T) {

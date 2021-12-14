@@ -6,8 +6,8 @@ import (
 
 	aw "github.com/deanishe/awgo"
 
-	"github.com/cate1016/alfred-timetrack/alfred"
-	"github.com/cate1016/alfred-timetrack/api"
+	"github.com/cate1016/alfred-timelog/alfred"
+	"github.com/cate1016/alfred-timelog/api"
 )
 
 func DoAuthorize(wf *aw.Workflow, _ []string) (string, error) {

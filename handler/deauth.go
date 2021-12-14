@@ -5,8 +5,8 @@ import (
 
 	aw "github.com/deanishe/awgo"
 
-	"github.com/cate1016/alfred-timetrack/alfred"
-	"github.com/cate1016/alfred-timetrack/api"
+	"github.com/cate1016/alfred-timelog/alfred"
+	"github.com/cate1016/alfred-timelog/api"
 )
 
 func DoDeAuthorize(wf *aw.Workflow, _ []string) (string, error) {
@@ -22,7 +22,7 @@ func DoDeAuthorize(wf *aw.Workflow, _ []string) (string, error) {
 	// nolint:errcheck // removing the token from the keychain is best effort
 	_ = alfred.RemoveToken(wf)
 
-	_ = alfred.StoreOngoingTimetrack(wf, alfred.Timetrack{})
+	_ = alfred.StoreOngoingTimelog(wf, alfred.Timelog{})
 
-	return "Timetrack de-authorized successfully 😎", nil
+	return "Timelog de-authorized successfully 😎", nil
 }

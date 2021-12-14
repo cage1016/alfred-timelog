@@ -1,4 +1,4 @@
-module github.com/cate1016/alfred-timetrack
+module github.com/cate1016/alfred-timelog
 
 go 1.17
 

@@ -22,7 +22,7 @@ jobs:
       run: |
         VERSION=${{ steps.event.outputs.tag }} ./build.sh
         
-        echo "::set-output name=artifact::timetrack-${{ steps.event.outputs.tag }}.alfredworkflow"
+        echo "::set-output name=artifact::timelog-${{ steps.event.outputs.tag }}.alfredworkflow"
 
     - name: Upload to release
       uses: actions/upload-release-asset@v1

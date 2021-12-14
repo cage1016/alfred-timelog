@@ -6,12 +6,12 @@ import (
 
 	"google.golang.org/api/sheets/v4"
 
-	"github.com/cate1016/alfred-timetrack/utils"
+	"github.com/cate1016/alfred-timelog/utils"
 )
 
 //go:generate mockgen -destination ../mocks/sheetservice.go -package=automocks . SheetService
 type SheetService interface {
-	TimetrackSheetInitialize(sheetId string, wds, tr []string) error
+	TimelogSheetInitialize(sheetId string, wds, tr []string) error
 	AppendField(spreadsheetId, ra, content string) error
 }
 
@@ -70,7 +70,7 @@ func FnAlignment(rowIndex int64, Alignment string) *sheets.Request {
 	}
 }
 
-func (s *Sheet) TimetrackSheetInitialize(sheetId string, wds, tr []string) error {
+func (s *Sheet) TimelogSheetInitialize(sheetId string, wds, tr []string) error {
 	wdsp := append([]string{""}, wds...)
 	values := make([][]interface{}, len(wdsp))
 	var r, c int

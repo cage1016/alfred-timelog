@@ -6,14 +6,14 @@ import (
 
 	aw "github.com/deanishe/awgo"
 
-	"github.com/cate1016/alfred-timetrack/alfred"
-	"github.com/cate1016/alfred-timetrack/api"
+	"github.com/cate1016/alfred-timelog/alfred"
+	"github.com/cate1016/alfred-timelog/api"
 )
 
 func DoRefresh(wf *aw.Workflow, _ []string) (string, error) {
 	token, err := alfred.GetToken(wf)
 	if err != nil {
-		return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%v)", err)
+		return "", fmt.Errorf("please authorize Timelog with `tl authorize` first 👀 (%v)", err)
 	}
 
 	token, err = api.RefreshToken(alfred.GetClientID(wf), alfred.GetClientSecret(wf), token.RefreshToken)

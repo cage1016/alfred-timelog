@@ -15,6 +15,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/browser"
 	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/google"
 )
 
 const port = 38146
@@ -35,8 +36,8 @@ func NewConfig(clientID, clientSecret string) *oauth2.Config {
 			"https://www.googleapis.com/auth/userinfo.email",
 		},
 		Endpoint: oauth2.Endpoint{
-			AuthURL:  "https://accounts.google.com/o/oauth2/auth",
-			TokenURL: "https://oauth2.googleapis.com/token",
+			AuthURL:  google.Endpoint.AuthURL,
+			TokenURL: google.Endpoint.TokenURL,
 		},
 	}
 }
@@ -95,7 +96,7 @@ func callback(address string) chan *response {
 
 		var msg string
 		if r.URL.Query().Get("code") != "" {
-			msg = "TimeTrack authenticated correctly, you can now close this window."
+			msg = "Timelog authenticated correctly, you can now close this window."
 		} else {
 			msg = "Something went wrong with the authorization workflow. Please try again."
 		}

@@ -8,23 +8,23 @@ import (
 	aw "github.com/deanishe/awgo"
 	"golang.org/x/oauth2"
 
-	"github.com/cate1016/alfred-timetrack/alfred"
-	"github.com/cate1016/alfred-timetrack/api"
+	"github.com/cate1016/alfred-timelog/alfred"
+	"github.com/cate1016/alfred-timelog/api"
 )
 
 func Add(wf *aw.Workflow, args []string) (string, error) {
 	token, err := alfred.GetToken(wf)
 	if err != nil {
-		return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%v)", err)
+		return "", fmt.Errorf("please authorize Timelog with `tl authorize` first 👀 (%v)", err)
 	}
 
-	tt, err := alfred.LoadOngoingTimetrack(wf)
+	tt, err := alfred.LoadOngoingTimelog(wf)
 	if err != nil {
-		return "", fmt.Errorf("Load timetrack data failed, please try again later 🙏 (%v)", err)
+		return "", fmt.Errorf("Load Timelog data failed, please try again later 🙏 (%v)", err)
 	}
 
 	if tt.SpreadsheetID == "" {
-		return "", fmt.Errorf("please setup with `tt setup` first 👀 to initialize TimeTracker")
+		return "", fmt.Errorf("please setup with `tl setup` first 👀 to initialize Timelog")
 	}
 
 	// update token if expired
@@ -35,7 +35,7 @@ func Add(wf *aw.Workflow, args []string) (string, error) {
 
 		token, err = alfred.GetToken(wf)
 		if err != nil {
-			return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%v)", err)
+			return "", fmt.Errorf("please authorize Timelog with `tl authorize` first 👀 (%v)", err)
 		}
 	}
 
@@ -63,5 +63,5 @@ func Add(wf *aw.Workflow, args []string) (string, error) {
 		return "", fmt.Errorf("could not Add action description to Spreadsheet, please try again later 🙏 (%v)", err)
 	}
 
-	return fmt.Sprintf("Timetrack add '%s' to SpreadSheet '%s' successfully 😎", args[0], tt.SpreadsheetName), nil
+	return fmt.Sprintf("Timelog add '%s' to SpreadSheet '%s' successfully 😎", args[0], tt.SpreadsheetName), nil
 }
