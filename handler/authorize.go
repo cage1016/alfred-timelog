@@ -11,7 +11,14 @@ import (
 )
 
 func DoAuthorize(wf *aw.Workflow, _ []string) (string, error) {
-	token, err := api.GetToken(api.NewConfig(alfred.GetClientID(wf), alfred.GetClientSecret(wf)))
+	clientID := alfred.GetClientID(wf)
+	clientSecret := alfred.GetClientSecret(wf)
+
+	if clientID == "" || clientSecret == "" {
+		return "", fmt.Errorf("client id or client secret is empty 👀")
+	}
+
+	token, err := api.GetToken(api.NewConfig(clientID, clientSecret))
 	if err != nil {
 		return "", fmt.Errorf("cannot get an access token 😢 (%w)", err)
 	}
