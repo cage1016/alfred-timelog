@@ -5,9 +5,17 @@ import (
 	"net/http"
 
 	"google.golang.org/api/sheets/v4"
-
-	"github.com/cate1016/alfred-timelog/utils"
 )
+
+func IdOf(i int) string {
+	var b string
+	if i >= 26 {
+		b = IdOf((i / 26 >> 0) - 1)
+	} else {
+		b = ""
+	}
+	return b + string("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i%26>>0])
+}
 
 //go:generate mockgen -destination ../mocks/sheetservice.go -package=automocks . SheetService
 type SheetService interface {
@@ -94,7 +102,7 @@ func (s *Sheet) TimelogSheetInitialize(sheetId string, wds, tr []string) error {
 	}
 	c = len(values)
 
-	_, err := s.ssvc.Spreadsheets.Values.Update(sheetId, fmt.Sprintf("A1:%s%d", utils.IdOf(c), r), &sheets.ValueRange{
+	_, err := s.ssvc.Spreadsheets.Values.Update(sheetId, fmt.Sprintf("A1:%s%d", IdOf(c), r), &sheets.ValueRange{
 		MajorDimension: "COLUMNS",
 		Values:         values,
 	}).ValueInputOption("USER_ENTERED").Do()

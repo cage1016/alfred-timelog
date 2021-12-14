@@ -6,13 +6,75 @@ import (
 	"time"
 
 	"github.com/snabb/isoweek"
-
-	"github.com/cate1016/alfred-timelog/utils"
 )
 
 const (
 	PassContextValueKey = "Values"
 )
+
+func GetWeekDay(t time.Time, loc *time.Location) []string {
+	wyear, week := isoweek.FromDate(t.Year(), t.Month(), t.Day())
+	c := isoweek.StartTime(wyear, week, loc)
+	buf := make([]string, 7)
+	for i := 0; i < 7; i++ {
+		buf[i] = c.AddDate(0, 0, i).Format("01/02, Monday")
+	}
+	return buf
+}
+
+func GetTimeRange() []string {
+	buf := []string{
+		"5",
+		"5:30",
+		"6",
+		"6:30",
+		"7",
+		"7:30",
+		"8",
+		"8:30",
+		"9",
+		"9:30",
+		"10",
+		"10:30",
+		"11",
+		"11:30",
+		"12PM",
+		"12:30",
+		"1",
+		"1:30",
+		"2",
+		"2:30",
+		"3",
+		"3:30",
+		"4",
+		"4:30",
+		"5",
+		"5:30",
+		"6",
+		"6:30",
+		"7",
+		"7:30",
+		"8",
+		"8:30",
+		"9",
+		"9:30",
+		"10",
+		"10:30",
+		"11",
+		"11:30",
+		"12AM",
+		"12:30",
+		"1",
+		"1:30",
+		"2",
+		"2:30",
+		"3",
+		"3:30",
+		"4",
+		"4:30",
+	}
+	return buf
+}
 
 type Client struct {
 	drive DriveService
@@ -31,8 +93,8 @@ func (s *Client) Setup(drivefolderName string) (did, sheetname, csid string, sta
 	wyear, week := isoweek.FromDate(now.Year(), now.Month(), now.Day())
 
 	sheetname = fmt.Sprintf("%dw%d", wyear, week)
-	wds := utils.GetWeekDay(now, now.Location())
-	tr := utils.GetTimeRange()
+	wds := GetWeekDay(now, now.Location())
+	tr := GetTimeRange()
 
 	c := isoweek.StartTime(wyear, week, now.Location())
 	a := time.Date(c.Year(), c.Month(), c.Day(), 5, 0, 0, 0, now.Location())
@@ -57,7 +119,7 @@ func (s *Client) Setup(drivefolderName string) (did, sheetname, csid string, sta
 func (s *Client) AppendField(WeekStartUnix int64, ssid, content string) (err error) {
 	now := time.Now()
 	d := (now.Unix() - WeekStartUnix) / 60 / 30
-	return s.sheet.AppendField(ssid, fmt.Sprintf("%s%d", utils.IdOf(int((d/48)+1)), (d%48)+2), content)
+	return s.sheet.AppendField(ssid, fmt.Sprintf("%s%d", IdOf(int((d/48)+1)), (d%48)+2), content)
 }
 
 func NewClient(client *http.Client) (ks *Client, err error) {
