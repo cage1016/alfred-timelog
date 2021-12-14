@@ -1,7 +1,7 @@
 # Timelog alfred workflows
 
 [![Release](https://github.com/cage1016/alfred-timelog/actions/workflows/release.yml/badge.svg)](https://github.com/cage1016/alfred-timelog/actions/workflows/release.yml)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/cage1016/alfred-timelog)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/cage1016/alfred-timelog)](https://img.shields.io/github/v/release/cage1016/alfred-timelog)
 
 This side project is inspired by [Welcome to the 168 Hours Time Tracking Challenge! - Laura Vanderkam](https://lauravanderkam.com/2017/09/welcome-168-hours-time-tracking-challenge/). You could leverage Alfred and Google Sheets to track your time with ease. The goal is to track your time in a way that is easy to understand how much time you spend on.
 
