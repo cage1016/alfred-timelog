@@ -10,10 +10,15 @@ import (
 	"github.com/cate1016/alfred-timetrack/api"
 )
 
-func DoAuthorize(wf *aw.Workflow, _ []string) (string, error) {
-	token, err := api.GetToken(api.NewConfig(alfred.GetClientID(wf), alfred.GetClientSecret(wf)))
+func DoRefresh(wf *aw.Workflow, _ []string) (string, error) {
+	token, err := alfred.GetToken(wf)
 	if err != nil {
-		return "", fmt.Errorf("cannot get an access token 😢 (%w)", err)
+		return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%v)", err)
+	}
+
+	token, err = api.RefreshToken(alfred.GetClientID(wf), alfred.GetClientSecret(wf), token.RefreshToken)
+	if err != nil {
+		return "", fmt.Errorf("failed to renew token: %v", err)
 	}
 
 	b, err := json.Marshal(token)
@@ -25,5 +30,5 @@ func DoAuthorize(wf *aw.Workflow, _ []string) (string, error) {
 		return "", fmt.Errorf("cannot store the token in the keychain 😢 (%w)", err)
 	}
 
-	return "Token stored successfully 😎", nil
+	return "Do refresh token successfully 👍", nil
 }
