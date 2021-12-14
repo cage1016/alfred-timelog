@@ -600,32 +600,28 @@
 	<dict>
 		<key>client_id</key>
 		<string>335558396700-s2omrvoajfpma7789q930r5bc5pa0otr.apps.googleusercontent.com</string>
-		<key>drive_folder_id</key>
-		<string>1A6PfrqEAETDwNv6oHKybDNFmdYurjHYJ</string>
+		<key>client_secret</key>
+		<string>9crQjzdTGAUXDJreyBT0xZ6R</string>
 		<key>drive_folder_name</key>
 		<string>timetrack</string>
-		<key>secret</key>
-		<string>9crQjzdTGAUXDJreyBT0xZ6R</string>
+		<key>drive_folder_id</key>
+		<string>1A6PfrqEAETDwNv6oHKybDNFmdYurjHYJ</string>
 		<key>spreadsheet_id</key>
 		<string></string>
-		<key>week_end_unix</key>
-		<string>1638651600</string>
 		<key>week_start_unix</key>
 		<string>1638046800</string>
+		<key>week_end_unix</key>
+		<string>1638651600</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array>
 		<string>client_id</string>
-		<string>drive_folder_id</string>
+		<string>client_secret</string>
 		<string>drive_folder_name</string>
-		<string>secret</string>
-		<string>spreadsheet_id</string>
-		<string>week_end_unix</string>
-		<string>week_start_unix</string>
 	</array>
 	<key>version</key>
-	<string></string>
+	<string>${VERSION}</string>
 	<key>webaddress</key>
-	<string>https://kaichu.io</string>
+	<string>https://github.com/cage1016/alfred-timetrack</string>
 </dict>
 </plist>
