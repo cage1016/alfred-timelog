@@ -599,9 +599,9 @@
 	<key>variables</key>
 	<dict>
 		<key>client_id</key>
-		<string>335558396700-s2omrvoajfpma7789q930r5bc5pa0otr.apps.googleusercontent.com</string>
+		<string></string>
 		<key>client_secret</key>
-		<string>9crQjzdTGAUXDJreyBT0xZ6R</string>
+		<string></string>
 		<key>drive_folder_name</key>
 		<string>timelog</string>
 	</dict>
