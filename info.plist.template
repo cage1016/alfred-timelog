@@ -155,7 +155,7 @@
 	<key>createdby</key>
 	<string>KAI CHU CHUNG</string>
 	<key>description</key>
-	<string></string>
+	<string>168 Hours Time Tracking</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -487,7 +487,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>This side project is inspired by Welcome to the 168 Hours Time Tracking Challenge! - Laura Vanderkam (https://lauravanderkam.com/2017/09/welcome-168-hours-time-tracking-challenge). You could leverage Alfred and Google Sheets to track your time with ease. The goal is to track your time in a way that is easy to understand how much time you spend on.</string>
 	<key>uidata</key>
 	<dict>
 		<key>1D1526AD-C358-4300-BC08-F4DD73C1A51A</key>
