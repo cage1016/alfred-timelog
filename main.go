@@ -8,7 +8,7 @@ import (
 
 	aw "github.com/deanishe/awgo"
 
-	"github.com/cate1016/timetrack-alfred-workflows/handler"
+	"github.com/cate1016/alfred-timetrack/handler"
 )
 
 var wf *aw.Workflow
@@ -24,10 +24,11 @@ func run() {
 	}
 
 	handlers := map[string]func(*aw.Workflow, []string) (string, error){
-		"add":    handler.Add,
-		"auth":   handler.DoAuthorize,
-		"deauth": handler.DoDeAuthorize,
-		"setup":  handler.DoSetup,
+		"add":     handler.Add,
+		"auth":    handler.DoAuthorize,
+		"deauth":  handler.DoDeAuthorize,
+		"setup":   handler.DoSetup,
+		"refresh": handler.DoRefresh,
 	}
 
 	h, found := handlers[args[0]]
