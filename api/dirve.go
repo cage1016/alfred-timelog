@@ -2,7 +2,6 @@ package api
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"google.golang.org/api/drive/v3"
@@ -22,8 +21,7 @@ type Drive struct {
 func (s *Drive) GetOrCreate(fd string) (string, error) {
 	f, err := s.dsvc.Files.List().Q(fmt.Sprintf("name='%s'", fd)).Fields(googleapi.Field("nextPageToken, files(id, name)")).Spaces("drive").Do()
 	if err != nil {
-		log.Fatalf("GetOrInsertDriveFolder fail:", err.Error())
-		return "", err
+		return "", fmt.Errorf("query drive API fail: %v", err)
 	}
 
 	if len(f.Files) == 0 {
@@ -32,8 +30,7 @@ func (s *Drive) GetOrCreate(fd string) (string, error) {
 			Name:     fd,
 			MimeType: "application/vnd.google-apps.folder"}).Fields(googleapi.Field("id")).Do()
 		if err != nil {
-			log.Fatalf("GetOrInsertDriveFolder fail:", err.Error())
-			return "", err
+			return "", fmt.Errorf("create drive folder fail: %v", err)
 		}
 		return f.Id, nil
 	}
@@ -44,8 +41,7 @@ func (s *Drive) GetOrCreate(fd string) (string, error) {
 func (s *Drive) GetOrCreateSheet(sheetName, parentId string) (string, error) {
 	f, err := s.dsvc.Files.List().Q(fmt.Sprintf("name='%s' and parents in '%s'", sheetName, parentId)).Fields(googleapi.Field("nextPageToken, files(id, name)")).Spaces("drive").Do()
 	if err != nil {
-		log.Fatalf("GetOrCreateCarModelSpreadsheet fail:", err.Error())
-		return "", err
+		return "", fmt.Errorf("query drive API fail: %v", err)
 	}
 
 	if len(f.Files) == 0 {
@@ -55,8 +51,7 @@ func (s *Drive) GetOrCreateSheet(sheetName, parentId string) (string, error) {
 			Parents:  []string{parentId},
 		}).Do()
 		if err != nil {
-			log.Fatalf("GetOrInsertDriveFolder fail:", err.Error())
-			return "", err
+			return "", fmt.Errorf("create spreadsheet: %v", err)
 		}
 		return f.Id, nil
 	}

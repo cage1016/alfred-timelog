@@ -2,7 +2,6 @@ package api
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 
 	"google.golang.org/api/sheets/v4"
@@ -100,8 +99,7 @@ func (s *Sheet) TimetrackSheetInitialize(sheetId string, wds, tr []string) error
 		Values:         values,
 	}).ValueInputOption("USER_ENTERED").Do()
 	if err != nil {
-		log.Fatalf("CarModelDataInitialize fail:", err.Error())
-		return err
+		return fmt.Errorf("update spreadsheet value fail: %s", err.Error())
 	}
 
 	// update format
@@ -224,8 +222,7 @@ func (s *Sheet) TimetrackSheetInitialize(sheetId string, wds, tr []string) error
 		Requests: reqs,
 	}).Do()
 	if err != nil {
-		log.Fatalf("Spreadsheets.BatchUpdate:", err.Error())
-		return err
+		return fmt.Errorf("update spreadsheet format fail: %s", err.Error())
 	}
 
 	return nil
