@@ -18,6 +18,15 @@ func Add(wf *aw.Workflow, args []string) (string, error) {
 		return "", fmt.Errorf("please authorize TimeTracker with `tt authorize` first 👀 (%v)", err)
 	}
 
+	tt, err := alfred.LoadOngoingTimetrack(wf)
+	if err != nil {
+		return "", fmt.Errorf("Load timetrack data failed, please try again later 🙏 (%v)", err)
+	}
+
+	if tt.SpreadsheetID == "" {
+		return "", fmt.Errorf("please setup with `tt setup` first 👀 to initialize TimeTracker")
+	}
+
 	// update token if expired
 	if token.Expiry.Before(time.Now()) {
 		if _, err = DoRefresh(wf, []string{}); err != nil {
@@ -34,11 +43,6 @@ func Add(wf *aw.Workflow, args []string) (string, error) {
 	client, err := api.NewClient(
 		oauth2.NewClient(ctx, api.NewConfig(alfred.GetClientID(wf), alfred.GetClientSecret(wf)).TokenSource(ctx, token)),
 	)
-	if err != nil {
-		return "", fmt.Errorf("something wrong happened, please try again later 🙏 (%v)", err)
-	}
-
-	tt, err := alfred.LoadOngoingTimetrack(wf)
 	if err != nil {
 		return "", fmt.Errorf("something wrong happened, please try again later 🙏 (%v)", err)
 	}
