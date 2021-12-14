@@ -1,7 +1,6 @@
 package api
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
@@ -10,9 +9,14 @@ import (
 	"google.golang.org/api/googleapi"
 )
 
+//go:generate mockgen -destination ../mocks/driveservice.go -package=automocks . DriveService
+type DriveService interface {
+	GetOrCreate(fd string) (string, error)
+	GetOrCreateSheet(sheetName, parentId string) (string, error)
+}
+
 type Drive struct {
 	dsvc *drive.Service
-	ctx  context.Context
 }
 
 func (s *Drive) GetOrCreate(fd string) (string, error) {
@@ -59,13 +63,10 @@ func (s *Drive) GetOrCreateSheet(sheetName, parentId string) (string, error) {
 	return f.Files[0].Id, nil
 }
 
-func NewDrive(ctx context.Context, client *http.Client) (ks *Drive, err error) {
+func NewDrive(client *http.Client) (DriveService, error) {
 	dsvc, err := drive.New(client)
 	if err != nil {
 		return nil, err
 	}
-	ks = &Drive{
-		dsvc: dsvc,
-	}
-	return
+	return &Drive{dsvc: dsvc}, nil
 }

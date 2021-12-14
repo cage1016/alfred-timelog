@@ -1,19 +1,74 @@
 package api
 
 import (
-	"context"
 	"fmt"
 	"log"
 	"net/http"
 
 	"google.golang.org/api/sheets/v4"
 
-	"github.com/cate1016/timetrack-alfred-workflows/utils"
+	"github.com/cate1016/alfred-timetrack/utils"
 )
+
+//go:generate mockgen -destination ../mocks/sheetservice.go -package=automocks . SheetService
+type SheetService interface {
+	TimetrackSheetInitialize(sheetId string, wds, tr []string) error
+	AppendField(spreadsheetId, ra, content string) error
+}
 
 type Sheet struct {
 	ssvc *sheets.Service
-	ctx  context.Context
+}
+
+func FnColor(rowIndex int64, br, bg, bb, fr, fg, fb float64) *sheets.Request {
+	return &sheets.Request{
+		RepeatCell: &sheets.RepeatCellRequest{
+			Range: &sheets.GridRange{
+				SheetId:          0,
+				StartRowIndex:    rowIndex - 1,
+				EndRowIndex:      rowIndex,
+				StartColumnIndex: 0,
+				EndColumnIndex:   8,
+			},
+			Cell: &sheets.CellData{
+				UserEnteredFormat: &sheets.CellFormat{
+					BackgroundColor: &sheets.Color{
+						Red:   br,
+						Green: bg,
+						Blue:  bb,
+					},
+					TextFormat: &sheets.TextFormat{
+						ForegroundColor: &sheets.Color{
+							Red:   fr,
+							Green: fg,
+							Blue:  fb,
+						},
+					},
+				},
+			},
+			Fields: "userEnteredFormat(backgroundColor,textFormat)",
+		},
+	}
+}
+
+func FnAlignment(rowIndex int64, Alignment string) *sheets.Request {
+	return &sheets.Request{
+		RepeatCell: &sheets.RepeatCellRequest{
+			Range: &sheets.GridRange{
+				SheetId:          0,
+				StartRowIndex:    rowIndex - 1,
+				EndRowIndex:      rowIndex,
+				StartColumnIndex: 0,
+				EndColumnIndex:   1,
+			},
+			Cell: &sheets.CellData{
+				UserEnteredFormat: &sheets.CellFormat{
+					HorizontalAlignment: Alignment,
+				},
+			},
+			Fields: "userEnteredFormat(horizontalAlignment)",
+		},
+	}
 }
 
 func (s *Sheet) TimetrackSheetInitialize(sheetId string, wds, tr []string) error {
@@ -176,57 +231,6 @@ func (s *Sheet) TimetrackSheetInitialize(sheetId string, wds, tr []string) error
 	return nil
 }
 
-func FnColor(rowIndex int64, br, bg, bb, fr, fg, fb float64) *sheets.Request {
-	return &sheets.Request{
-		RepeatCell: &sheets.RepeatCellRequest{
-			Range: &sheets.GridRange{
-				SheetId:          0,
-				StartRowIndex:    rowIndex - 1,
-				EndRowIndex:      rowIndex,
-				StartColumnIndex: 0,
-				EndColumnIndex:   8,
-			},
-			Cell: &sheets.CellData{
-				UserEnteredFormat: &sheets.CellFormat{
-					BackgroundColor: &sheets.Color{
-						Red:   br,
-						Green: bg,
-						Blue:  bb,
-					},
-					TextFormat: &sheets.TextFormat{
-						ForegroundColor: &sheets.Color{
-							Red:   fr,
-							Green: fg,
-							Blue:  fb,
-						},
-					},
-				},
-			},
-			Fields: "userEnteredFormat(backgroundColor,textFormat)",
-		},
-	}
-}
-
-func FnAlignment(rowIndex int64, Alignment string) *sheets.Request {
-	return &sheets.Request{
-		RepeatCell: &sheets.RepeatCellRequest{
-			Range: &sheets.GridRange{
-				SheetId:          0,
-				StartRowIndex:    rowIndex - 1,
-				EndRowIndex:      rowIndex,
-				StartColumnIndex: 0,
-				EndColumnIndex:   1,
-			},
-			Cell: &sheets.CellData{
-				UserEnteredFormat: &sheets.CellFormat{
-					HorizontalAlignment: Alignment,
-				},
-			},
-			Fields: "userEnteredFormat(horizontalAlignment)",
-		},
-	}
-}
-
 func (s *Sheet) AppendField(spreadsheetId, ra, content string) error {
 	res, err := s.ssvc.Spreadsheets.Values.Get(spreadsheetId, ra).Do()
 	if err != nil {
@@ -252,15 +256,11 @@ func (s *Sheet) AppendField(spreadsheetId, ra, content string) error {
 	return nil
 }
 
-func NewSheet(ctx context.Context, client *http.Client) (ks *Sheet, err error) {
+func NewSheet(client *http.Client) (SheetService, error) {
 	ssvc, err := sheets.New(client)
 	if err != nil {
 		return nil, err
 	}
 
-	ks = &Sheet{
-		ssvc: ssvc,
-		ctx:  ctx,
-	}
-	return
+	return &Sheet{ssvc: ssvc}, nil
 }

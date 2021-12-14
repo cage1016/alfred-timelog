@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/snabb/isoweek"
@@ -17,17 +16,12 @@ func IdOf(i int) string {
 	return b + string("ABCDEFGHIJKLMNOPQRSTUVWXYZ"[i%26>>0])
 }
 
-func GetWeekFileName(t time.Time) string {
-	wyear, week := isoweek.FromDate(t.Year(), t.Month(), t.Day())
-	return fmt.Sprintf("%dw%d", wyear, week)
-}
-
 func GetWeekDay(t time.Time, loc *time.Location) []string {
 	wyear, week := isoweek.FromDate(t.Year(), t.Month(), t.Day())
 	c := isoweek.StartTime(wyear, week, loc)
 	buf := make([]string, 7)
 	for i := 0; i < 7; i++ {
-		buf[i] = c.AddDate(0, 0, -1+i).Format("01/02, Monday")
+		buf[i] = c.AddDate(0, 0, i).Format("01/02, Monday")
 	}
 	return buf
 }

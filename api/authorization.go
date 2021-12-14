@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"crypto/sha256"
+	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -23,10 +24,10 @@ type response struct {
 	err    error
 }
 
-func NewConfig(clientID string) *oauth2.Config {
+func NewConfig(clientID, clientSecret string) *oauth2.Config {
 	return &oauth2.Config{
-		ClientID:     "335558396700-s2omrvoajfpma7789q930r5bc5pa0otr.apps.googleusercontent.com",
-		ClientSecret: "9crQjzdTGAUXDJreyBT0xZ6R",
+		ClientID:     clientID,
+		ClientSecret: clientSecret,
 		RedirectURL:  "http://localhost:" + strconv.Itoa(port),
 		Scopes: []string{
 			"https://www.googleapis.com/auth/spreadsheets",
@@ -161,4 +162,42 @@ func RevokeToken(token *oauth2.Token) error {
 	}
 
 	return nil
+}
+
+type OauthState struct {
+	AccessToken string `json:"access_token"`
+	TokenType   string `json:"token_type"`
+	IDToken     string `json:"id_token"`
+	ExpiresIn   int64  `json:"expires_in"`
+}
+
+func RefreshToken(clientID, clientSecret, refresToken string) (*oauth2.Token, error) {
+	formdata := url.Values{}
+	formdata.Add("client_id", clientID)
+	formdata.Add("grant_type", "refresh_token")
+	formdata.Add("client_secret", clientSecret)
+	formdata.Add("refresh_token", refresToken)
+	resp, err := http.PostForm("https://oauth2.googleapis.com/token", formdata)
+	if err != nil {
+		return nil, fmt.Errorf("networking error while trying to renew the token: %w", err)
+	} else {
+		defer resp.Body.Close()
+		if resp.StatusCode == 200 {
+			var self = new(OauthState)
+			err = json.NewDecoder(resp.Body).Decode(self)
+			if err != nil {
+				return nil, err
+			}
+
+			token := &oauth2.Token{
+				AccessToken:  self.AccessToken,
+				TokenType:    self.TokenType,
+				RefreshToken: refresToken,
+				Expiry:       time.Now().Add(time.Duration(self.ExpiresIn) * time.Second),
+			}
+			return token, nil
+		} else {
+			return nil, fmt.Errorf("renew token failed, status code: %d", resp.StatusCode)
+		}
+	}
 }
