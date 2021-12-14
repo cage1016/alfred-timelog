@@ -45,6 +45,9 @@ This side project is inspired by [Welcome to the 168 Hours Time Tracking Challen
 1. Visit [Releases · cage1016/alfred-timelog](https://github.com/cage1016/alfred-timelog/releases) Download latest release and install.
 1. Setup `Client ID` and `Client secret`
     ![alfred-timelog](./screenshots/4.png)
+1. `tl auth` to authorize **alfred-timelog** to access your Google Drive and SpreadSheet by Google API
+1. `tl setup` to create Drive folder and weekly Spreadsheet
+1. `tl` to add action description you want and will add to Spreadsheet
 
 ## Contribute
 If you find any bug or want to propose a new feature, please open an issue to discuss it.
