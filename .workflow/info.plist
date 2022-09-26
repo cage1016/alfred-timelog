@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.kaichu.timelog</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>1F09E796-6D1F-4CCC-999C-301A9C129276</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>6D8D656A-0353-4503-B4C8-D2466DA6113E</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>27AA4CDF-9DCD-4AA6-9114-E9FAC3EEF211</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>991E9104-5A28-4B0C-AEB2-9536CE8BAD98</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>799F0112-0495-41D4-9CB2-13AF3F84B83A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>991E9104-5A28-4B0C-AEB2-9536CE8BAD98</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BEB4AEE5-9B08-4F66-81CD-F86C051CE5BF</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5D254AD1-A00F-4D2B-BE3A-94B5418F5FB0</string>
+				<key>modifiers</key>
+				<integer>524288</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>72505A7F-834F-4F3C-B07E-EEE1D86D1E81</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string></string>
+	<key>description</key>
+	<string>168 Hours Time Tracking</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Timelog</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:error}</string>
+				<key>title</key>
+				<string>Timelog Add</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1F09E796-6D1F-4CCC-999C-301A9C129276</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>tla</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Add action description as '{query}'</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>799F0112-0495-41D4-9CB2-13AF3F84B83A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./exe add "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>991E9104-5A28-4B0C-AEB2-9536CE8BAD98</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:error}</string>
+						<key>matchcasesensitive</key>
+						<true/>
+						<key>matchmode</key>
+						<integer>1</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>Error</string>
+						<key>uid</key>
+						<string>6D8D656A-0353-4503-B4C8-D2466DA6113E</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>success</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>add "{var:msg}" to "{var:file}" success</string>
+				<key>title</key>
+				<string>Timelog Add</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>27AA4CDF-9DCD-4AA6-9114-E9FAC3EEF211</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>path</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.revealfile</string>
+			<key>uid</key>
+			<string>5D254AD1-A00F-4D2B-BE3A-94B5418F5FB0</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tll</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./exe list "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>List Timelog sheets</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>BEB4AEE5-9B08-4F66-81CD-F86C051CE5BF</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>openwith</key>
+				<string></string>
+				<key>sourcefile</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openfile</string>
+			<key>uid</key>
+			<string>72505A7F-834F-4F3C-B07E-EEE1D86D1E81</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Afred-timelog
+
+Track your time with Alfred
+
+![alfred timelog](./demo.jpg)
+
+This side project is inspired by [Welcome to the 168 Hours Time Tracking Challenge! - Laura Vanderkam](https://lauravanderkam.com/2017/09/welcome-168-hours-time-tracking-challenge/). You could leverage Alfred and Google Sheets to track your time with ease. The goal is to track your time in a way that is easy to understand how much time you spend on.
+
+## 168 Hours Time Tracking Challenge Sheet
+![168 Hours Time Tracking Challenge!](./168hours.jpeg)
+
+## Features
+
+- Track your time with Alfred
+
+## Download
+Make sure to download the latest released directly from the releases page. [Download here](https://github.com/cage1016/alfred-timelog/releases).
+
+## Requires
+- Preferably Alfred 5
+
+## Usage 
+
+![](./usage.jpg)
+
+- use `tla` to add message to track sheet
+- use `tll` to list tracking sheet
+
+### Track sheet example
+![](./sheet.jpg)
+
+## Third Party Library
+
+- [qax-os/excelize: Go language library for reading and writing Microsoft Excel™ (XLAM / XLSM / XLSX / XLTM / XLTX) spreadsheets](https://github.com/qax-os/excelize)
+
+## Change Log
+
+### 2.0.0
+- Add alfred5 support
+- rewrite by [cage1016/ak](https://github.com/cage1016/ak)
+- Save track sheet in local desk instead of Google Spreadsheet to reduce the complexity of setting up
+
+### 1.0.0
+- Initial release</string>
+	<key>uidata</key>
+	<dict>
+		<key>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</key>
+		<dict>
+			<key>xpos</key>
+			<real>505</real>
+			<key>ypos</key>
+			<real>125</real>
+		</dict>
+		<key>1F09E796-6D1F-4CCC-999C-301A9C129276</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>1</integer>
+			<key>xpos</key>
+			<real>620</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+		<key>27AA4CDF-9DCD-4AA6-9114-E9FAC3EEF211</key>
+		<dict>
+			<key>xpos</key>
+			<real>620</real>
+			<key>ypos</key>
+			<real>190</real>
+		</dict>
+		<key>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</key>
+		<dict>
+			<key>xpos</key>
+			<real>245</real>
+			<key>ypos</key>
+			<real>135</real>
+		</dict>
+		<key>5D254AD1-A00F-4D2B-BE3A-94B5418F5FB0</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>72505A7F-834F-4F3C-B07E-EEE1D86D1E81</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>799F0112-0495-41D4-9CB2-13AF3F84B83A</key>
+		<dict>
+			<key>note</key>
+			<string>add message to current sheet</string>
+			<key>xpos</key>
+			<real>75</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
+		<key>991E9104-5A28-4B0C-AEB2-9536CE8BAD98</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>105</real>
+		</dict>
+		<key>BEB4AEE5-9B08-4F66-81CD-F86C051CE5BF</key>
+		<dict>
+			<key>note</key>
+			<string>list sheets</string>
+			<key>xpos</key>
+			<real>75</real>
+			<key>ypos</key>
+			<real>320</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Timelog Excel files base folder. Keep empty as default value</string>
+			<key>label</key>
+			<string>Base Folder</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>TIMELOG_BASE_FOLDER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string></string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string></string>
+			<key>label</key>
+			<string>Time zone</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>TIME_ZONE</string>
+		</dict>
+	</array>
+	<key>version</key>
+	<string>2.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/cage1016/alfred-timelog</string>
+</dict>
+</plist>
