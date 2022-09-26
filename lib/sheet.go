@@ -43,8 +43,9 @@ func InitOrUpdate(now time.Time, dir string) (res alfred.Timelog, err error) {
 		}
 	}
 
-	for i, v := range wds {
-		f.SetCellValue("Sheet1", fmt.Sprintf("%s1", IdOf(i+1)), v)
+	nwds := append([]string{sn}, wds...)
+	for i, v := range nwds {
+		f.SetCellValue("Sheet1", fmt.Sprintf("%s1", IdOf(i)), v)
 	}
 
 	path := filepath.Join(dir, fileName)
