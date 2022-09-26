@@ -84,6 +84,9 @@ func runAddCmd(c *cobra.Command, args []string) {
 		Alignment: &excelize.Alignment{
 			WrapText: true,
 		},
+		Font: &excelize.Font{
+			Size: 14,
+		},
 	})
 	f.SetCellStyle("Sheet1", ra, ra, cs)
 
@@ -93,8 +96,7 @@ func runAddCmd(c *cobra.Command, args []string) {
 		f.SetCellValue("Sheet1", ra, args[0])
 	}
 
-	av.Var("file", filepath.Base(tt.FileName))
-	av.Var("msg", args[0])
+	av.Var("msg", fmt.Sprintf("add \"%s\" to \"%s\"", args[0], filepath.Base(tt.FileName)))
 	if err := av.Send(); err != nil {
 		wf.Fatalf("failed to send args to Alfred: %v", err)
 	}

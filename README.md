@@ -32,6 +32,7 @@ Make sure to download the latest released directly from the releases page. [Down
 
 - use `tla` to add message to track sheet
 - use `tll` to list tracking sheet
+- use `tlc` to clear cache
 
 ### Track sheet example
 ![](./screenshots/sheet.jpg)

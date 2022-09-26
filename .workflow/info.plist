@@ -72,6 +72,32 @@
 				<false/>
 			</dict>
 		</array>
+		<key>A43C5A18-5565-4D5D-AE70-206090C4ECF1</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BAC0A4DC-9D82-4029-A0DD-5E64791BC1AB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BAC0A4DC-9D82-4029-A0DD-5E64791BC1AB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>BEB4AEE5-9B08-4F66-81CD-F86C051CE5BF</key>
 		<array>
 			<dict>
@@ -109,23 +135,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>concurrently</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{var:error}</string>
-				<key>title</key>
-				<string>Timelog Add</string>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./exe add "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>1F09E796-6D1F-4CCC-999C-301A9C129276</string>
+			<string>62D06BC8-AB35-44A7-9C95-B0C94837A9B3</string>
 			<key>version</key>
-			<integer>1</integer>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -174,6 +202,40 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:error}</string>
+				<key>title</key>
+				<string>Timelog Add</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>1F09E796-6D1F-4CCC-999C-301A9C129276</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>conditions</key>
 				<array>
 					<dict>
@@ -206,19 +268,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.transform</string>
-			<key>uid</key>
-			<string>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>lastpathcomponent</key>
 				<false/>
 				<key>onlyshowifquerypopulated</key>
@@ -226,7 +275,7 @@
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>add "{var:msg}" to "{var:file}" success</string>
+				<string>{var:msg} success</string>
 				<key>title</key>
 				<string>Timelog Add</string>
 			</dict>
@@ -234,6 +283,50 @@
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>27AA4CDF-9DCD-4AA6-9114-E9FAC3EEF211</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./exe clear "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>BAC0A4DC-9D82-4029-A0DD-5E64791BC1AB</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>tlc</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Clear Timelog Cache</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>A43C5A18-5565-4D5D-AE70-206090C4ECF1</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -343,6 +436,7 @@ Make sure to download the latest released directly from the releases page. [Down
 
 - use `tla` to add message to track sheet
 - use `tll` to list tracking sheet
+- use `tlc` to clear cache
 
 ### Track sheet example
 ![](./sheet.jpg)
@@ -365,25 +459,25 @@ Make sure to download the latest released directly from the releases page. [Down
 		<key>0E2038EC-38D4-4ECC-AEF2-3FC69E0D5D50</key>
 		<dict>
 			<key>xpos</key>
-			<real>505</real>
+			<real>560</real>
 			<key>ypos</key>
-			<real>125</real>
+			<real>185</real>
 		</dict>
 		<key>1F09E796-6D1F-4CCC-999C-301A9C129276</key>
 		<dict>
 			<key>colorindex</key>
 			<integer>1</integer>
 			<key>xpos</key>
-			<real>620</real>
+			<real>740</real>
 			<key>ypos</key>
-			<real>55</real>
+			<real>115</real>
 		</dict>
 		<key>27AA4CDF-9DCD-4AA6-9114-E9FAC3EEF211</key>
 		<dict>
 			<key>xpos</key>
-			<real>620</real>
+			<real>740</real>
 			<key>ypos</key>
-			<real>190</real>
+			<real>250</real>
 		</dict>
 		<key>280E6E69-DB8A-40B1-A48B-5D7F4B0A943F</key>
 		<dict>
@@ -397,14 +491,21 @@ Make sure to download the latest released directly from the releases page. [Down
 			<key>xpos</key>
 			<real>330</real>
 			<key>ypos</key>
-			<real>260</real>
+			<real>420</real>
+		</dict>
+		<key>62D06BC8-AB35-44A7-9C95-B0C94837A9B3</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>105</real>
 		</dict>
 		<key>72505A7F-834F-4F3C-B07E-EEE1D86D1E81</key>
 		<dict>
 			<key>xpos</key>
 			<real>330</real>
 			<key>ypos</key>
-			<real>380</real>
+			<real>540</real>
 		</dict>
 		<key>799F0112-0495-41D4-9CB2-13AF3F84B83A</key>
 		<dict>
@@ -422,6 +523,22 @@ Make sure to download the latest released directly from the releases page. [Down
 			<key>ypos</key>
 			<real>105</real>
 		</dict>
+		<key>A43C5A18-5565-4D5D-AE70-206090C4ECF1</key>
+		<dict>
+			<key>note</key>
+			<string>clear cache</string>
+			<key>xpos</key>
+			<real>75</real>
+			<key>ypos</key>
+			<real>270</real>
+		</dict>
+		<key>BAC0A4DC-9D82-4029-A0DD-5E64791BC1AB</key>
+		<dict>
+			<key>xpos</key>
+			<real>330</real>
+			<key>ypos</key>
+			<real>270</real>
+		</dict>
 		<key>BEB4AEE5-9B08-4F66-81CD-F86C051CE5BF</key>
 		<dict>
 			<key>note</key>
@@ -429,7 +546,7 @@ Make sure to download the latest released directly from the releases page. [Down
 			<key>xpos</key>
 			<real>75</real>
 			<key>ypos</key>
-			<real>320</real>
+			<real>480</real>
 		</dict>
 	</dict>
 	<key>userconfigurationconfig</key>
