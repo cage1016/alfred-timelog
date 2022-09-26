@@ -5,19 +5,14 @@ import (
 )
 
 const (
-	clientID        = "client_id"
-	clientSecret    = "client_secret"
-	DriveFolderName = "drive_folder_name"
+	timeZone   = "TIME_ZONE"
+	BaseFolder = "TIMELOG_BASE_FOLDER"
 )
 
-func GetClientID(wf *aw.Workflow) string {
-	return wf.Config.GetString(clientID)
+func GetTimeZone(wf *aw.Workflow) string {
+	return wf.Config.Get(timeZone, "")
 }
 
-func GetClientSecret(wf *aw.Workflow) string {
-	return wf.Config.Get(clientSecret)
-}
-
-func GetDriveFolderName(wf *aw.Workflow) string {
-	return wf.Config.GetString(DriveFolderName)
+func GetBaseFolder(wf *aw.Workflow) string {
+	return wf.Config.Get(BaseFolder, "")
 }

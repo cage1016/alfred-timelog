@@ -1,35 +1,33 @@
-module github.com/cate1016/alfred-timelog
+module github.com/cage1016/alfred-timelog
 
 go 1.17
 
 require (
 	github.com/deanishe/awgo v0.29.1
-	github.com/dvsekhvalnov/jose2go v1.5.0
-	github.com/golang/mock v1.6.0
-	github.com/google/uuid v1.3.0
-	github.com/pkg/browser v0.0.0-20210911075715-681adbf594b8
+	github.com/joho/godotenv v1.4.0
+	github.com/ku/go-change-case v0.0.1
+	github.com/sirupsen/logrus v1.9.0
 	github.com/snabb/isoweek v1.0.1
-	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
-	google.golang.org/api v0.63.0
+	github.com/spf13/cobra v1.5.0
+	github.com/xuri/excelize/v2 v2.6.1
 	gotest.tools v2.2.0+incompatible
 )
 
 require (
-	cloud.google.com/go v0.99.0 // indirect
-	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/go-cmp v0.5.6 // indirect
-	github.com/googleapis/gax-go/v2 v2.1.1 // indirect
+	github.com/google/go-cmp v0.5.9 // indirect
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/magefile/mage v1.11.0 // indirect
+	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
+	github.com/richardlehane/mscfb v1.0.4 // indirect
+	github.com/richardlehane/msoleps v1.0.3 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/xuri/efp v0.0.0-20220603152613-6918739fd470 // indirect
+	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
 	go.deanishe.net/env v0.5.1 // indirect
 	go.deanishe.net/fuzzy v1.0.0 // indirect
-	go.opencensus.io v0.23.0 // indirect
-	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
-	golang.org/x/sys v0.0.0-20211213223007-03aa0b5f6827 // indirect
+	golang.org/x/crypto v0.0.0-20220817201139-bc19a97f63c8 // indirect
+	golang.org/x/net v0.0.0-20220812174116-3211cb980234 // indirect
+	golang.org/x/sys v0.0.0-20220728004956-3c1f35247d10 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	google.golang.org/appengine v1.6.7 // indirect
-	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
-	google.golang.org/grpc v1.42.0 // indirect
-	google.golang.org/protobuf v1.27.1 // indirect
 )
