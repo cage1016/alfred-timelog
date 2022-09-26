@@ -4,6 +4,8 @@ Track your time with Alfred
 
 [![Release](https://github.com/cage1016/alfred-timelog/actions/workflows/release.yml/badge.svg)](https://github.com/cage1016/alfred-timelog/actions/workflows/release.yml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/cage1016/alfred-timelog)](https://img.shields.io/github/v/release/cage1016/alfred-timelog)
+![GitHub all releases](https://img.shields.io/github/downloads/cage1016/alfred-timelog/total)
+[![codecov](https://codecov.io/gh/cage1016/alfred-timelog/branch/master/graph/badge.svg)](https://codecov.io/gh/cage1016/alfred-timelog)
 ![](https://img.shields.io/badge/Alfred-5-blueviolet)
 
 ![alfred timelog](./screenshots/demo.jpg)
